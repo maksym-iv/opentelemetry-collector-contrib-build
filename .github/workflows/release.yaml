@@ -9,7 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE: ${{ github.repository }}
-  OTELCOL_VERSION: "0.156.0"
+  OTELCOL_VERSION: "0.157.0"
   ALPINE_VERSION: "alpine3.24"
 
 jobs:
