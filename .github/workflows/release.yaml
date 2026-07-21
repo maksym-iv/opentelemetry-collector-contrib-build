@@ -9,7 +9,6 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE: ${{ github.repository }}
-  VERSION: "0.0.1"
   OTELCOL_VERSION: "0.156.0"
   ALPINE_VERSION: "alpine3.24"
 
@@ -55,7 +54,7 @@ jobs:
           platforms: |
             linux/amd64
             linux/arm64
-          tags: "${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.OTELCOL_VERSION }}-${{ env.VERSION }}-${{ env.ALPINE_VERSION }}"
+          tags: "${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.OTELCOL_VERSION }}-${{ env.ALPINE_VERSION }}"
           target: runner
           context: ./
           push: true
@@ -110,7 +109,7 @@ jobs:
           platforms: |
             linux/amd64
             linux/arm64
-          tags: "${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.OTELCOL_VERSION }}-${{ env.VERSION }}-obi"
+          tags: "${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.OTELCOL_VERSION }}-obi"
           target: runner
           context: ./
           push: true
