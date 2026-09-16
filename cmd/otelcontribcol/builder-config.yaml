@@ -37,6 +37,7 @@ processors:
 
 receivers:
   - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awss3receiver v0.161.0
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/webhookeventreceiver v0.161.0
 
 connectors:
   - gomod: go.opentelemetry.io/collector/connector/forwardconnector v0.161.0
