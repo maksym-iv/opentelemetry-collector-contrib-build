@@ -13,7 +13,7 @@ FROM golang:1.27.1-alpine3.24@sha256:cf6fca6641884b8433441b2b0652976f975e1d0fdd2
 ARG APP_ROOT
 WORKDIR ${APP_ROOT}
 
-RUN apk --update --no-cache add ca-certificates
+RUN apk --update --no-cache add ca-certificates git
 RUN go install go.opentelemetry.io/collector/cmd/builder@v0.161.0
 COPY --from=ebpf-generator ${APP_ROOT} ${APP_ROOT}/opentelemetry-ebpf-instrumentation
 

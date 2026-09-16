@@ -16,6 +16,7 @@ This collector should be used as a daemonset only.
 
 - `.github/workflows/release.yaml` would benefit from the GHA reusable workflow.
 - CLI list tags hint
+
   ```sh
   skopeo list-tags docker://ghcr.io/maksym-iv/opentelemetry-collector-contrib-build | jq -r '.Tags[]' | grep -E '^[0-9]+\.[0-9]+.[0-9]+' | sort -V
   ```
