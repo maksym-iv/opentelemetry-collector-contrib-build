@@ -14,7 +14,7 @@ ARG APP_ROOT
 WORKDIR ${APP_ROOT}
 
 RUN apk --update --no-cache add ca-certificates
-RUN go install go.opentelemetry.io/collector/cmd/builder@v0.160.0
+RUN go install go.opentelemetry.io/collector/cmd/builder@v0.161.0
 COPY --from=ebpf-generator ${APP_ROOT} ${APP_ROOT}/opentelemetry-ebpf-instrumentation
 
 
