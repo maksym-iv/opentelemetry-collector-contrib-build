@@ -9,7 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE: ${{ github.repository }}
-  OTELCOL_VERSION: "0.161.0"
+  OTELCOL_VERSION: "0.162.0"
   ALPINE_VERSION: "alpine3.24"
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
           "ubuntu-26.04-arm": "linux/arm64"
         }
       dockerfile: cmd/otelcontribcol/Dockerfile
-      version: "0.161.0-alpine3.24"
+      version: "0.162.0-alpine3.24"
       cache_storage: "foobar"
       cache_from: type=gha
       cache_to: type=gha,mode=max
