@@ -1,16 +1,20 @@
 ARG APP_ROOT=/app
 
-FROM golang:1.27.1-alpine3.24@sha256:cf6fca6641884b8433441b2b0652976f975e1d0fdd26d177eaaf8596087f3125 AS builder
+# skopeo list-tags docker://golang | jq -r '.Tags[]' | grep -E '^[0-9]+\.[0-9]+.[0-9]+-alpine' | sort -V
+# skopeo inspect --raw docker://golang:1.27.2-alpine3.24 | sha256sum
+FROM golang:1.27.2-alpine3.24@sha256:f92b6ef800e499660581efdabdf25d9d817a9d124eaf900924f0504e7e27e12d AS builder
 ARG APP_ROOT
 WORKDIR ${APP_ROOT}
 
 RUN apk --update --no-cache add ca-certificates
-RUN go install go.opentelemetry.io/collector/cmd/builder@v0.162.0
+RUN go install go.opentelemetry.io/collector/cmd/builder@v0.163.0
 
 COPY cmd/ ./cmd
 RUN builder --config cmd/otelcontribcol/builder-config.yaml --verbose
 
-FROM alpine:3.24@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6 AS runner
+# skopeo list-tags docker://alpine | jq -r '.Tags[]' | grep -E '^[0-9]+\.[0-9]+.[0-9]+' | sort -V
+# skopeo inspect --raw docker://alpine:3.24.2 | sha256sum
+FROM alpine:3.24.2@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6 AS runner
 ARG APP_ROOT
 ARG USER_UID=10001
 ARG USER_GID=10001
