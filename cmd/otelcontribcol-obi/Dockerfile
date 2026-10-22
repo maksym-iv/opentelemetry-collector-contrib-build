@@ -2,7 +2,7 @@ ARG APP_ROOT=/app
 
 # skopeo list-tags docker://ghcr.io/open-telemetry/obi-generator | jq '.Tags' | sort -V
 # skopeo inspect --raw docker://ghcr.io/open-telemetry/obi-generator:0.2.15 | sha256sum
-FROM ghcr.io/open-telemetry/obi-generator:0.2.17@sha256:1ae9406f2566e32ccf5d8ba8e5ff0586a322300ae82870988ad605429021174a AS ebpf-generator
+FROM ghcr.io/open-telemetry/obi-generator:0.2.18@sha256:00da54aef610c9d8ed77757afab9c419079f17852bad0e02fe0102e5ce508be4 AS ebpf-generator
 ARG APP_ROOT
 WORKDIR ${APP_ROOT}
 
