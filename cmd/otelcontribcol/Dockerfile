@@ -7,7 +7,7 @@ ARG APP_ROOT
 WORKDIR ${APP_ROOT}
 
 RUN apk --update --no-cache add ca-certificates
-RUN go install go.opentelemetry.io/collector/cmd/builder@v0.163.0
+RUN go install go.opentelemetry.io/collector/cmd/builder@v0.164.0
 
 COPY cmd/ ./cmd
 RUN builder --config cmd/otelcontribcol/builder-config.yaml --verbose
