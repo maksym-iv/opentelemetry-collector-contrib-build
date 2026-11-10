@@ -7,14 +7,14 @@ ARG APP_ROOT
 WORKDIR ${APP_ROOT}
 
 RUN apk --update --no-cache add ca-certificates
-RUN go install go.opentelemetry.io/collector/cmd/builder@v0.164.0
+RUN go install go.opentelemetry.io/collector/cmd/builder@vv0.165.0
 
 COPY cmd/ ./cmd
 RUN builder --config cmd/otelcontribcol/builder-config.yaml --verbose
 
 # skopeo list-tags docker://alpine | jq -r '.Tags[]' | grep -E '^[0-9]+\.[0-9]+.[0-9]+' | sort -V
-# skopeo inspect --raw docker://alpine:3.24.3 | sha256sum
-FROM alpine:3.24.3@sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a AS runner
+# skopeo inspect --raw docker://alpine:3.24.4 | sha256sum
+FROM alpine:3.24.4@sha256:f59abe656b692d901e184be3445e084786602108599d2a51d229c0f5a48c71bf AS runner
 ARG APP_ROOT
 ARG USER_UID=10001
 ARG USER_GID=10001
