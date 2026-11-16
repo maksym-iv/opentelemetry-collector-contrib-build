@@ -2,7 +2,7 @@ ARG APP_ROOT=/app
 
 # skopeo list-tags docker://golang | jq -r '.Tags[]' | grep -E '^[0-9]+\.[0-9]+.[0-9]+-alpine' | sort -V
 # skopeo inspect --raw docker://golang:1.27.2-alpine3.24 | sha256sum
-FROM golang:1.27.3-alpine3.24@sha256:f92b6ef800e499660581efdabdf25d9d817a9d124eaf900924f0504e7e27e12d AS builder
+FROM golang:1.27.4-alpine3.24@sha256:70bd7ddea8b6cbe5d6943cde279d6b67feb10cc924fb9100d1d8757c1575b280 AS builder
 ARG APP_ROOT
 WORKDIR ${APP_ROOT}
 
